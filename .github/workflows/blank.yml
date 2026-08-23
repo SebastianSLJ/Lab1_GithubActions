@@ -1,25 +1,27 @@
-name: Lab1
+name: Lab1 
 
 on: 
   push:
-    branches:
-      main
+    branches: main
+    
 
 jobs: 
   build:
     runs-on: ubuntu-latest
-    env: 
-      VERSION: ${{ github.sha }}
+    outputs:
+      output1: ${{steps.creation.outputs.test}} 
     steps: 
-      - name: Test
-        uses: actions/checkout@v4      
-      - run: VERSION >> $GITHUB_OUTPUT
+      - name: Variable Creation
+        id: creation
+        run: echo "test=hello" >> "$GITHUB_OUTPUT"
+
   deploy: 
     runs-on: ubuntu-latest
-    env: 
-      PRODUCTION: ${{ secrets.Secret_test}}
     needs: build
-    steps:
-      - name: Output
-        run: echo "This is the hash variable {{ needs.build.outputs.VERSION }}"
+    environment: Secret_test
+    steps: 
+      - run: echo "My variable ${{needs.build.outputs.output1}}"
+
+
+
     

@@ -3,7 +3,7 @@ name: Cache_workflow
 
 on:
     push:
-        branches: main
+        branches: master
 
 jobs:
     job1:

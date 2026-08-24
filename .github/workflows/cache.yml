@@ -10,17 +10,18 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
-              uses: actions/checkout@v6
+              uses: actions/checkout@v4
+            - name: Caching dependencies
+              uses: actions/cache@v4
+              id: python-cache
+              with: 
+                path: ~/.cache/pip
+                key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+                restore-keys: |
+                  ${{ runner.os }}-pip-  
             - name: install dependencies
               run: |
                 pip install -r requirements.txt > cache-report.md
-
-            - name: Caching dependencies
-              uses: actions/cache@v6
-              id: python-cache
-              with: 
-                path: ~/.py
-                key: ${{ hashFiles('**/requirements.txt') }} --if-exists      
             - name: Archive result 
               uses: actions/upload-artifact@v4
               with: 

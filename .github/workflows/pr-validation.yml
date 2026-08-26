@@ -1,0 +1,13 @@
+name: concurrency_lab
+
+on: 
+  pull_request:
+    branches: master
+
+jobs:
+    job1: 
+        runs-on: ubuntu-latest
+        concurrency:
+            group: staging
+            cancel-in-progress: true
+

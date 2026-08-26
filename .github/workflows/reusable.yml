@@ -8,13 +8,13 @@ on:
                 required: true
                 type: string
         secrets: 
-            API_TOKEN: 
+            API_TEST: 
                 required: true
 
 jobs: 
     job1:
         env: 
-                API_SECRET: ${{secrets.API_TOKEN}}
+                API_SECRET: ${{secrets.API_TEST}}
         runs-on: ubuntu-latest
         steps:
             - name: Print Token

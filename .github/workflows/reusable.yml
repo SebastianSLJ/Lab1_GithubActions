@@ -21,5 +21,5 @@ jobs:
             - name: Print Token
               uses: actions/checkout@v4              
             - name: Print Token
-              run: echo "The API_TOKEN is " "$API_KEY" "And the input received is" "{{ inputs.environment }}"
+              run: echo "The API_TOKEN issssss " "$API_KEY" "And the input received is" "{{ inputs.environment }}"
 

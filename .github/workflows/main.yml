@@ -1,0 +1,13 @@
+name: main_workflow
+
+on: 
+    push: 
+        branches: master
+
+
+jobs: 
+    call-reusable:
+        uses: ./.github/workflows/reusable.yml
+        with: 
+            environment: API_TEST
+        secrets: inherit

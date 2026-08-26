@@ -9,5 +9,5 @@ jobs:
     call-reusable:
         uses: ./.github/workflows/reusable.yml
         with: 
-            environment: "staging"
+            environment: "API_TEST"
         secrets: inherit

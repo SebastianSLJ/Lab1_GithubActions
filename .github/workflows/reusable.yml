@@ -13,12 +13,13 @@ on:
 
 jobs: 
     job1:
+        environment: API_TEST
         env: 
-                API_SECRET: ${{secrets.API_SECRET}}
+                API_KEY: ${{secrets.API_SECRET}}
         runs-on: ubuntu-latest
         steps:
             - name: Print Token
               uses: actions/checkout@v4              
             - name: Print Token
-              run: echo "The API_TOKEN is " "$API_SECRET" "And the input received is" "{{ inputs.environment }}"
+              run: echo "The API_TOKEN is " "$API_KEY" "And the input received is" "{{ inputs.environment }}"
 

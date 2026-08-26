@@ -14,7 +14,7 @@ on:
 jobs: 
     job1:
         env: 
-                API_KEY: ${{secrets.API_TEST}}
+                API_KEY: ${{secrets.API_SECRET}}
         runs-on: ubuntu-latest
         steps:
             - name: Print Token

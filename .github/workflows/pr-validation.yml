@@ -16,6 +16,6 @@ jobs:
         steps: 
             - name: pull-request verification
               run: |
-               echo "!Iniciando verificacionnnn del PR!"
+               echo "!Iniciando verificacionnnnnnn del PR!"
                sleep 30
                echo "Verificacion completa"

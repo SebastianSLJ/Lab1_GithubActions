@@ -2,7 +2,7 @@ name: concurrency_lab
 
 on: 
   pull_request:
-    branches: master
+    branches: main
 
 jobs:
     job1: 
@@ -16,6 +16,6 @@ jobs:
         steps: 
             - name: pull-request verification
               run: |
-               echo "!Iniciando verificacionnnnnnn del PR!"
+               echo "!Iniciando verificacionnnn del PR!"
                sleep 30
                echo "Verificacion completa"

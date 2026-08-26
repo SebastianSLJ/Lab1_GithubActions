@@ -15,4 +15,7 @@ jobs:
             pull-requests: write
         steps: 
             - name: pull-request verification
-              run: echo "Pull request succesfully applicated"
+              run: |
+               echo "Iniciando verificacion del PR!"
+               sleep 30
+               echo "Verificacion completa"

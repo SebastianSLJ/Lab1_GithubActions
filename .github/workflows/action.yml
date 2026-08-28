@@ -1,0 +1,13 @@
+name: composite_action
+
+on: 
+    push: 
+        branches: main
+
+
+jobs: 
+    job1: 
+        runs-on: ubuntu-latest
+        steps: 
+            - name: composite
+              run: ""

@@ -9,8 +9,8 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - name: Uses greeting custom action
-              uses: ./.github/actions/my-action/action.yml
+              uses: ./.github/actions/my-action
               with: 
                 who-to-greet: 'Sebastian'
             - name: Print output from custom action
-              run: echo "The greeting time was ${{ steps.saved-time.outputs.greeting_time}}"           
+              run: echo "The greeting time was ${{ steps.greeting.outputs.greeting-time }}"           

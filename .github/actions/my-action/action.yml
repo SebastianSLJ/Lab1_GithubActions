@@ -10,7 +10,7 @@ inputs:
 outputs: 
     greeting-time:         
         description: "Time until greet"
-        value: 2
+        value: ${{ steps.saved-time.outputs.greeting_time }}
         
 runs: 
     using: "composite"

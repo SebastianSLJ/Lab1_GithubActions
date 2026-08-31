@@ -14,5 +14,5 @@ jobs:
               with:
                 python-version: '3.12'
             - name: Print cache status 
-              run: echo "The python version on this lab is " "${{ steps.setup.outputs.cache-hit }}"
+              run: echo "Cache hit ${{ steps.setup.outputs.cache-hit }}"
               

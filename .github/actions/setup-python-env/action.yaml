@@ -6,7 +6,7 @@ inputs:
     default: '3.11'
 outputs:
   cache-hit:
-    value: ${{ steps.cache.outputs.cache }}
+    value: ${{ steps.cache.outputs.cache-hit }}
 runs:
   using: 'composite'
   steps:

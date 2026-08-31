@@ -9,6 +9,7 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - name: Uses greeting custom action
+              id: greeting
               uses: ./.github/actions/my-action
               with: 
                 who-to-greet: 'Sebastian'

@@ -1,11 +1,12 @@
 name: 'Setup Python Env'
+description: 'setup of lab6'
 inputs:
   python-version:
     required: false
     default: '3.11'
 outputs:
   cache-hit:
-    value: ${{ steps.cache.outputs.cache-hit }}
+    value: ${{ steps.cache.outputs.cache }}
 runs:
   using: 'composite'
   steps:

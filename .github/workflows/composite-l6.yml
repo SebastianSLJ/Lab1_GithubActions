@@ -8,11 +8,11 @@ jobs:
         runs-on: ubuntu-latest
         steps: 
             - uses: actions/checkout@v4
-            - name: composite consume
+            - name: Setup python environment
               id: setup
-              uses: ./.github/actions/lab6              
+              uses: ./.github/actions/setup-python-env              
               with:
                 python-version: '3.12'
-            - name: print version 
+            - name: Print cache status 
               run: echo "The python version on this lab is " "${{ steps.setup.outputs.cache-hit }}"
               

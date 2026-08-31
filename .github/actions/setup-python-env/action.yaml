@@ -18,5 +18,12 @@ runs:
       with:
         path: .venv
         key: venv-${{ hashFiles('**/requirements.txt') }}
-    - run: pip install -r requirements.txt
+        restore-keys: |
+          venv-${{ runner.os }}-
+    - name: install dependencies
       shell: bash
+      run: |
+        . .venv/bin/activate
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+      

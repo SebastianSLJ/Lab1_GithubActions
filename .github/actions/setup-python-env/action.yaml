@@ -20,6 +20,11 @@ runs:
         key: venv-${{ hashFiles('**/requirements.txt') }}
         restore-keys: |
           venv-${{ runner.os }}-
+    - name: Create virtual environment
+      if: steps.cache.outputs.cache-hit != 'true'
+      shell: bash
+      run: |
+        python -m venv .venv
     - name: install dependencies
       shell: bash
       run: |

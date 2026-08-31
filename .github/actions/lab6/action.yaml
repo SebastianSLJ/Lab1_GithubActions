@@ -1,0 +1,21 @@
+name: 'Setup Python Env'
+inputs:
+  python-version:
+    required: false
+    default: '3.11'
+outputs:
+  cache-hit:
+    value: ${{ steps.cache.outputs.cache-hit }}
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.python-version }}
+    - id: cache
+      uses: actions/cache@v4
+      with:
+        path: .venv
+        key: venv-${{ hashFiles('**/requirements.txt') }}
+    - run: pip install -r requirements.txt
+      shell: bash

@@ -1,0 +1,17 @@
+name: Test-action
+
+on: 
+    push
+
+jobs: 
+    job1: 
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Uses greeting custom action
+              id: greeting
+              uses: ./.github/actions/my-action
+              with: 
+                who-to-greet: 'Sebastian'
+            - name: Print output from custom action
+              run: echo "The greeting time was ${{ steps.greeting.outputs.greeting-time }}"           

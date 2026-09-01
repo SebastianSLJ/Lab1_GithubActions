@@ -1,0 +1,27 @@
+name: composite_action
+description: "Composite action lab"
+
+inputs: 
+    who-to-greet: 
+        description: 'Who to greet'
+        required: true 
+        default: "World"
+
+outputs: 
+    greeting-time:         
+        description: "Time until greet"
+        value: ${{ steps.saved-time.outputs.greeting_time }}
+        
+runs: 
+    using: "composite"
+    steps: 
+        - name: Set greetings
+          shell: bash                    
+          env:
+            INPUT_WHO_TO_GREET: ${{ inputs.who-to-greet }}
+          run: echo "Hello $INPUT_WHO_TO_GREET"
+        - name: Save greeting time
+          id: saved-time
+          shell: bash
+          run: echo "greeting_time=$(date)" >> $GITHUB_OUTPUT
+

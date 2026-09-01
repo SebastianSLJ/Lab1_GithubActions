@@ -1,0 +1,20 @@
+name: PR Labeler JS Action
+description: 'Add automatically a label to a PR recently open'
+
+inputs:
+  label-name:
+    description: 'Label name'
+    required: false
+    default: 'needs review'
+  github-token:
+    description: 'GITHUB_TOKEN for authentication'
+    required: true
+
+outputs:
+  label-applied:
+    description: 'Label applied'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+

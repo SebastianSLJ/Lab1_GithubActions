@@ -1,0 +1,25 @@
+name: auto Label PS
+
+on: 
+    pull_request: 
+        types: [opened, synchronize]
+
+permissions: 
+    pull-requests: write
+
+jobs: 
+    label: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            - name: Apply Label Action 
+              id: add-label 
+              uses: ./github/actions/pr-labeler-js
+              with:
+                label-name: 'triage'
+                github-token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Log applied label 
+              run: | 
+                echo: 'Label applied succesfully ${{ steps.add-label.outputs.label-applied }}'

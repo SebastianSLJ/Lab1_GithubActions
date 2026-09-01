@@ -24,7 +24,7 @@ runs:
       if: steps.cache.outputs.cache-hit != 'true'
       shell: bash
       run: |
-        python -m venv .venv
+        python -m venv .venv  
 
     - name: Install dependencies
       shell: bash
@@ -32,3 +32,7 @@ runs:
         . .venv/bin/activate
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+
+    - name: Add venv to PATH
+      shell: bash
+      run: echo "${{ github.workspace }}/.venv/bin" >> $GITHUB_PATH

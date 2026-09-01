@@ -15,7 +15,7 @@ jobs:
               uses: actions/checkout@v4
             - name: Apply Label Action 
               id: add-label 
-              uses: ./github/actions/pr-labeler-js
+              uses: ./.github/actions/pr-labeler-js
               with:
                 label-name: 'triage'
                 github-token: ${{ secrets.GITHUB_TOKEN }}

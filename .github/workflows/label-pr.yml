@@ -22,4 +22,4 @@ jobs:
 
             - name: Log applied label 
               run: | 
-                echo: 'Label applied succesfully ${{ steps.add-label.outputs.label-applied }}'
+                echo 'Label applied succesfully ${{ steps.add-label.outputs.label-applied }}'

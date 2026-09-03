@@ -1,0 +1,15 @@
+name: Docker-practice
+description: 'Lab 8 - Docker practice'
+
+inputs:
+  commit-message:
+    description: "Commit message to inspect"
+    required: true
+
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.commit-message }}
+  
